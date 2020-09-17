@@ -29,7 +29,7 @@ function getUserInfo() {
       if (res.status !== 0) {
         return layui.layer.msg(res.message);
       }
-      console.log(res);
+      // console.log(res);
       // 渲染用户头像
       renderAvatar(res.data);
     },
@@ -46,18 +46,18 @@ function getUserInfo() {
     //   }
     // },
   });
+}
 
-  // 渲染用户头像
-  function renderAvatar(user) {
-    var uname = user.nickname || user.username;
-    $(".welcome").html("欢迎&nbsp;&nbsp;&nbsp;" + uname);
-    if (user.user_pic !== null) {
-      $(".layui-nav-img").prop("src", user.user_pic).show();
-      $(".text_avatar").hide();
-    } else {
-      var text = uname[0].toUpperCase();
-      $(".layui-nav-img").hide();
-      $(".text_avatar").html(text).show();
-    }
+// 渲染用户头像
+function renderAvatar(user) {
+  var uname = user.nickname || user.username;
+  $(".welcome").html("欢迎&nbsp;&nbsp;&nbsp;" + uname);
+  if (user.user_pic !== null) {
+    $(".layui-nav-img").prop("src", user.user_pic).show();
+    $(".text_avatar").hide();
+  } else {
+    var text = uname[0].toUpperCase();
+    $(".layui-nav-img").hide();
+    $(".text_avatar").html(text).show();
   }
 }
